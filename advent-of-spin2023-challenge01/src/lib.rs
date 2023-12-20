@@ -1,6 +1,5 @@
 use spin_sdk::http::{Request, Response, Router};
 use spin_sdk::http_component;
-use url::Url;
 
 /// A simple Spin HTTP component.
 #[http_component]
@@ -9,19 +8,7 @@ fn handle_advent_of_spin2023_challenge01(req: Request) -> Response {
     let mut router = Router::new();
     router.get("/data", api::show_whishlist);
     router.post("/data", api::update_whishlist);
-    if has_secret(&req) {
-        router.handle(req)
-    } else {
-        Response::builder()
-            .status(401)
-            .body("Invalid secret")
-            .build()
-    }
-}
-
-fn has_secret(req: &Request) -> bool {
-    let parsed = Url::parse(req.uri());
-    parsed.is_ok() && parsed.unwrap().query_pairs().any(|pair| pair.0 == "advent")
+    router.handle(req)
 }
 
 mod api {
@@ -50,7 +37,7 @@ mod api {
         let posted_json_string = String::from_utf8(req.body().to_vec())?;
         let posted: Whishlist = serde_json::from_str(&posted_json_string)?;
 
-        store.set_json("whishlist", &posted)?;
+        store.set_json(req.query(), &posted)?;
         let json_string = serde_json::to_string(&posted)?;
 
         Ok(Response::builder()
@@ -60,9 +47,9 @@ mod api {
             .build())
     }
 
-    pub fn show_whishlist(_: Request, _: Params) -> anyhow::Result<impl IntoResponse> {
+    pub fn show_whishlist(req: Request, _: Params) -> anyhow::Result<impl IntoResponse> {
         let store = Store::open_default()?;
-        let whilshlist = store.get_json("whishlist")?.unwrap_or(Whishlist::empty());
+        let whilshlist = store.get_json(req.query())?.unwrap_or(Whishlist::empty());
         let json_string = serde_json::to_string(&whilshlist)?;
 
         Ok(Response::builder()
