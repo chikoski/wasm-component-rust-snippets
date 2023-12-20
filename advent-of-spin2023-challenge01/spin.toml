@@ -1,0 +1,27 @@
+spin_manifest_version = 2
+
+[application]
+name = "advent-of-spin2023-challenge01"
+version = "0.1.0"
+authors = ["N.Shimizu <chikoski@gmail.com>"]
+description = "Advent of Spin 2023 Challenge 01"
+
+[[trigger.http]]
+route = "/data"
+component = "advent-of-spin2023-challenge01"
+
+[component.advent-of-spin2023-challenge01]
+source = "target/wasm32-wasi/release/advent_of_spin2023_challenge01.wasm"
+allowed_outbound_hosts = []
+key_value_stores = ["default"]
+[component.advent-of-spin2023-challenge01.build]
+command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs", "Cargo.toml"]
+
+[[trigger.http]]
+route = "/..."
+component = "static-file"
+
+[component.static-file]
+source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.2.1/spin_static_fs.wasm", digest = "sha256:5f05b15f0f7cd353d390bc5ebffec7fe25c6a6d7a05b9366c86dcb1a346e9f0f" }
+files = [{ source = "assets", destination = "/" }]
