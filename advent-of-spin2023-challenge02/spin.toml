@@ -1,0 +1,18 @@
+spin_manifest_version = 2
+
+[application]
+name = "advent-of-spin2023-challenge02"
+version = "0.1.0"
+authors = ["N.Shimizu <chikoski@gmail.com>"]
+description = "Advent of Spin 2023 Challenge #2"
+
+[[trigger.http]]
+route = "/..."
+component = "advent-of-spin2023-challenge02"
+
+[component.advent-of-spin2023-challenge02]
+source = "target/wasm32-wasi/release/advent_of_spin2023_challenge02.wasm"
+allowed_outbound_hosts = []
+[component.advent-of-spin2023-challenge02.build]
+command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs", "Cargo.toml"]
