@@ -1,0 +1,20 @@
+spin_manifest_version = 2
+
+[application]
+name = "advent-of-spin2023-challenge03"
+version = "0.1.0"
+authors = ["N.Shimizu <chikoski@gmail.com>"]
+description = ""
+
+[[trigger.http]]
+route = "/..."
+component = "advent-of-spin2023-challenge03"
+
+[component.advent-of-spin2023-challenge03]
+source = "target/wasm32-wasi/release/advent_of_spin2023_challenge03.wasm"
+allowed_outbound_hosts = []
+ai_models = ["llama2-chat"]
+
+[component.advent-of-spin2023-challenge03.build]
+command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs", "Cargo.toml"]
