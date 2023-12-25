@@ -1,0 +1,12 @@
+package example:component;
+
+interface says {
+    enum format-error {
+        ioerror,
+        convert-error,
+        unknown
+    }
+
+    format: func(content: string) -> result<string, format-error>;
+    say: func(content: string);
+}
