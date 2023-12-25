@@ -2,8 +2,8 @@ cargo_component_bindings::generate!();
 
 use std::io::BufWriter;
 
+use bindings::exports::component::hello_world::dimension::{Guest as Dimension, Point};
 use bindings::exports::component::hello_world::formatter::{FormatError, Guest as Formatter};
-use bindings::exports::component::hello_world::dimension::{Point, Guest as Dimension}
 use ferris_says::say;
 
 struct Component;
@@ -22,13 +22,13 @@ impl Formatter for Component {
         }
     }
 
-    fn format_point(p:Point) -> Result<String, FormatError> {
+    fn format_point(p: Point) -> Result<String, FormatError> {
         Ok(format!("({},{})", p.x, p.y))
     }
 }
 
-impl Dimension for Component{
+impl Dimension for Component {
     fn new_point(x: i32, y: i32) -> Point {
-        Point{x, y}
+        Point { x, y }
     }
 }
