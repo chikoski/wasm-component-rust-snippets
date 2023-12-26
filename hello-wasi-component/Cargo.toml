@@ -1,0 +1,15 @@
+[package]
+name = "hello-wasi-component"
+version = "0.1.0"
+edition = "2021"
+
+[package.metadata.component]
+package = "component:hello-wasi-component"
+
+[package.metadata.component.dependencies]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.76"
+cargo-component-bindings = "0.6.0"
