@@ -1,0 +1,24 @@
+package example:grep;
+
+interface types {
+    record line {
+        line-number: u32,
+        text: string,
+    }
+
+    record line-list {
+        lines: list<line>,
+    }
+}
+
+interface file-as-multiline {
+    use types.{line, line-list};
+
+    grep: func(input: line-list) -> option<line-list>;
+}
+
+interface for-each-line {
+    use types.{line};
+
+    predicate: func(input: line) -> bool;
+}
