@@ -1,0 +1,9 @@
+[workspace]
+members = [
+    "canonical-abi",
+    "hello-wasi-component",
+    "hello-world",
+    "host-code-generation/host-says",
+    "host-code-generation/guest-ferris",
+]
+resolver = "2"
