@@ -5,5 +5,14 @@ members = [
     "hello-world",
     "host-code-generation/host-says",
     "host-code-generation/guest-ferris",
+    "grep-wasm/grep-cli",
+    "grep-wasm/id-multiline",
 ]
+
+exclude = [
+    "advent-of-spin2023-challenge01",
+    "advent-of-spin2023-challenge02",
+    "advent-of-spin2023-challenge03",
+]
+
 resolver = "2"
