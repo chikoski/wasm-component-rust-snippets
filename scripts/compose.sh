@@ -7,9 +7,9 @@ build_dir="target/$target/$build"
 compose_dir="composed"
 
 function compose() {
-    host = $1
-    guest = $2
-    output = $3
+    host=$1
+    guest=$2
+    output=$3
     if [ -n $host ] && [ -n $guest ] && [ -n $output ]; then
         echo "compose $host and $guest"
         cargo component build -r
