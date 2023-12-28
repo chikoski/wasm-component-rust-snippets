@@ -15,7 +15,7 @@ cargo_component_bindings::generate!();
 
 fn main() {
     let args = Args::parse();
-    for target in args.files.iter().map(|arg| PathBuf::from(arg)) {
+    for target in args.files.iter().map(PathBuf::from) {
         if let Err(e) = run(target) {
             println!("{}", e);
         }
