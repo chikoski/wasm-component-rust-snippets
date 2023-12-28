@@ -1,5 +1,5 @@
 package example:grep;
 
 world host {
-    import file-as-multiline;
+    import filter;
 }

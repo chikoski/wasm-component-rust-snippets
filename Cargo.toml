@@ -6,7 +6,7 @@ members = [
     "host-code-generation/host-says",
     "host-code-generation/guest-ferris",
     "grep-wasm/grep-cli",
-    "grep-wasm/id-multiline",
+    "grep-wasm/filter-id",
 ]
 
 exclude = [

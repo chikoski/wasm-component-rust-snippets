@@ -1,5 +1,0 @@
-package example:grep;
-
-world guest-multiline {
-    export file-as-multiline;   
-}

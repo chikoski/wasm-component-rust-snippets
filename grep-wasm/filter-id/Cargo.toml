@@ -1,5 +1,5 @@
 [package]
-name = "id-multiline"
+name = "filter-id"
 version = "0.1.0"
 edition = "2021"
 
@@ -12,10 +12,10 @@ cargo-component-bindings = "0.6.0"
 crate-type = ["cdylib"]
 
 [package.metadata.component]
-package = "component:id-multiline"
+package = "component:filter-id"
 
 [package.metadata.component.target]
 path = "../wit"
-world = "guest-multiline"
+world = "guest"
 
 [package.metadata.component.dependencies]

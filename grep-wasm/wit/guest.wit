@@ -1,0 +1,5 @@
+package example:grep;
+
+world guest {
+    export filter;   
+}

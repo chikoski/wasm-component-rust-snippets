@@ -11,14 +11,8 @@ interface types {
     }
 }
 
-interface file-as-multiline {
+interface filter {
     use types.{line, line-list};
 
-    grep: func(input: line-list) -> option<line-list>;
-}
-
-interface for-each-line {
-    use types.{line};
-
-    predicate: func(input: line) -> bool;
+    apply: func(input: line-list) -> option<line-list>;
 }

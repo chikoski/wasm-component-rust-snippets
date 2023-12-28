@@ -7,7 +7,7 @@ use std::path::PathBuf;
 use anyhow::Context;
 
 use args::Args;
-use bindings::example::grep::file_as_multiline::grep;
+use bindings::example::grep::filter::apply;
 use bindings::example::grep::types::{Line, LineList};
 use clap::Parser;
 
@@ -30,7 +30,7 @@ fn run(path: PathBuf) -> anyhow::Result<()> {
         .map(|(index, value)| new_line(index + 1, value))
         .collect();
     let lines = lines.into();
-    if let Some(lines) = grep(&lines) {
+    if let Some(lines) = apply(&lines) {
         println!("{}", path.display());
         for line in lines.lines {
             println!("{}", line);
