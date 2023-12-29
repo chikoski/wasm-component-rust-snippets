@@ -6,13 +6,15 @@ members = [
     "host-code-generation/host-says",
     "host-code-generation/guest-ferris",
     "grep-wasm/grep-cli",
-    "grep-wasm/filter-id",
+    "grep-wasm/filter-id", "wasmtime-wasi-cli",
 ]
 
 exclude = [
     "advent-of-spin2023-challenge01",
     "advent-of-spin2023-challenge02",
     "advent-of-spin2023-challenge03",
+    "grep-wasm/grep-cli-dynamic-linking",
+    "wasmtime-wasi-cli"
 ]
 
 resolver = "2"
