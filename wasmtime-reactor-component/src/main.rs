@@ -43,7 +43,7 @@ fn read_as_line_list(path: &String) -> anyhow::Result<LineList> {
 
 fn print_matched_lines(path: &str, lines_list: &LineList) {
     println!("{}:", path);
-    for line in lines_list.lines {
+    for line in &lines_list.lines {
         println!("{:3}: {}", line.line_number, line.text);
     }
 }
