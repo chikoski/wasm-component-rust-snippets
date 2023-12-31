@@ -1,0 +1,18 @@
+package example:grep;
+
+interface types {
+    record line {
+        line-number: u32,
+        text: string,
+    }
+
+    record line-list {
+        lines: list<line>,
+    }
+}
+
+interface filter {
+    use types.{line, line-list};
+
+    apply: func(input: line-list) -> option<line-list>;
+}
