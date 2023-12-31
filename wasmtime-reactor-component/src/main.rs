@@ -24,10 +24,7 @@ fn run(arguments: CommandLineArguments) -> anyhow::Result<()> {
     for file in arguments.file_list {
         if let Ok(line_list) = read_as_line_list(&file) {
             if let Some(found_lines) = context.apply_filter(&line_list) {
-                println!("{}:", file);
-                for line in found_lines.lines {
-                    println!("{:3}: {}", line.line_number, line.text);
-                }
+                print_matched_lines(&file, &found_lines);
             }
         }
     }
@@ -42,4 +39,11 @@ fn read_as_line_list(path: &String) -> anyhow::Result<LineList> {
         }
     }).collect::<Vec<Line>>();
     Ok(LineList { lines })
+}
+
+fn print_matched_lines(path: &str, lines_list: &LineList) {
+    println!("{}:", path);
+    for line in lines_list.lines {
+        println!("{:3}: {}", line.line_number, line.text);
+    }
 }
