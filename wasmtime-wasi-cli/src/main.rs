@@ -21,9 +21,7 @@ async fn run() -> anyhow::Result<()>{
     wasmtime_wasi::preview2::command::add_to_linker(&mut linker)?;
 
     let component = load_component(&engine)?;
-    let instance = linker.instantiate_async(&mut store, &component).await?;
-    let command = Command::new(&mut store, &instance)?;
-
+    let (command, _) = Command::instantiate_async(&mut store, &component, &linker).await?;
     let run = command.wasi_cli_run();
     let _ = run.call_run(&mut store).await?;
     Ok(())
@@ -31,7 +29,7 @@ async fn run() -> anyhow::Result<()>{
 
 fn create_config() -> Config {
     let mut config = Config::new();
-    //config.async_support(true);
+    config.async_support(true);
     config.wasm_component_model(true);
     config
 }

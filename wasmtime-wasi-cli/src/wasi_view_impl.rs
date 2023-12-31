@@ -1,21 +1,19 @@
-use std::sync::Arc;
 use wasmtime_wasi::preview2::{Table, WasiCtx, WasiCtxBuilder, WasiView};
 
 pub struct WasiViewImpl {
-    context: Arc<WasiCtx>,
-    table: Arc<Table>,
+    context: WasiCtx,
+    table: Table,
 }
 
-impl WasiViewImpl{
+impl WasiViewImpl {
     pub fn new() -> WasiViewImpl {
         let context = WasiCtxBuilder::new().inherit_stdout().build();
         let table = Table::new();
         WasiViewImpl {
-            context: Arc::new(context),
-            table: Arc::new(table),
+            context,
+            table,
         }
     }
-
 }
 
 impl WasiView for WasiViewImpl {
@@ -24,7 +22,7 @@ impl WasiView for WasiViewImpl {
     }
 
     fn table_mut(&mut self) -> &mut Table {
-        Arc::get_mut(&mut self.table).expect("Mutable table should be acquired.")
+        &mut self.table
     }
 
     fn ctx(&self) -> &WasiCtx {
@@ -32,6 +30,6 @@ impl WasiView for WasiViewImpl {
     }
 
     fn ctx_mut(&mut self) -> &mut WasiCtx {
-        Arc::get_mut(&mut self.context).expect("A mutable context should be acquired.")
+        &mut self.context
     }
 }
