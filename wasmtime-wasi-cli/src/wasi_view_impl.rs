@@ -5,17 +5,6 @@ pub struct WasiViewImpl {
     table: Table,
 }
 
-impl WasiViewImpl {
-    pub fn new() -> WasiViewImpl {
-        let context = WasiCtxBuilder::new().inherit_stdout().build();
-        let table = Table::new();
-        WasiViewImpl {
-            context,
-            table,
-        }
-    }
-}
-
 impl WasiView for WasiViewImpl {
     fn table(&self) -> &Table {
         &self.table
@@ -31,5 +20,16 @@ impl WasiView for WasiViewImpl {
 
     fn ctx_mut(&mut self) -> &mut WasiCtx {
         &mut self.context
+    }
+}
+
+impl WasiViewImpl {
+    pub fn new() -> WasiViewImpl {
+        let context = WasiCtxBuilder::new().inherit_stdout().build();
+        let table = Table::new();
+        WasiViewImpl {
+            context,
+            table,
+        }
     }
 }
