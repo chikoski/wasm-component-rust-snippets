@@ -1,0 +1,13 @@
+package component:calculation;
+
+interface calculation {
+    add: func(a: u32, b: u32) -> u32;
+}
+
+world reactor {
+    export calculation;
+}
+
+world cli {
+    import calculation;
+}

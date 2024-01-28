@@ -7,6 +7,8 @@ members = [
     "host-code-generation/guest-ferris",
     "grep-wasm/grep-cli",
     "grep-wasm/filter-id",
+    "calculation/add",
+    "calculation/cli",
 ]
 
 exclude = [

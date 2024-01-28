@@ -1,0 +1,18 @@
+[package]
+name = "calculation-cli"
+version = "0.1.0"
+edition = "2021"
+
+[package.metadata.component]
+package = "component:calculation"
+
+[package.metadata.component.dependencies]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[package.metadata.component.target]
+path = "../add/wit"
+world = "cli"
+
+[dependencies]
+cargo-component-bindings = "0.6.0"
