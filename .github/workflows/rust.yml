@@ -16,6 +16,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Add wasm32-unknown-unknown
+      run: rustup target add wasm32-unknown-unknown
+    - name: Add wasm32-wasi
+      run: rustup target add wasm32-wasi
     - name: Prep cargo-component
       run: cargo install cargo-component
     - name: Build
