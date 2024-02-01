@@ -9,6 +9,7 @@ members = [
     "grep-wasm/filter-id",
     "calculation/add",
     "calculation/cli",
+    "cargo-component-updater",
 ]
 
 exclude = [
