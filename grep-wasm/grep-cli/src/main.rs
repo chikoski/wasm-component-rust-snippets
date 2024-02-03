@@ -11,7 +11,7 @@ use bindings::example::grep::filter::apply;
 use bindings::example::grep::types::{Line, LineList};
 use clap::Parser;
 
-cargo_component_bindings::generate!();
+mod bindings;
 
 fn main() {
     let args = Args::parse();

@@ -16,5 +16,5 @@ world = "host"
 
 [dependencies]
 anyhow = "1.0.76"
-cargo-component-bindings = "0.6.0"
 clap = { version = "4.4.11", features = ["derive"] }
+wit-bindgen = "0.16.0"

@@ -1,6 +1,6 @@
 use std::{env, fs, fs::read_to_string, path::PathBuf};
 
-cargo_component_bindings::generate!();
+mod bindings;
 
 fn main() {
     println!("Hello, world!");

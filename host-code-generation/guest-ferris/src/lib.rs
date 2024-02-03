@@ -2,7 +2,7 @@ use std::io::BufWriter;
 
 use bindings::exports::example::component::says::{FormatError, Guest};
 
-cargo_component_bindings::generate!();
+mod bindings;
 
 struct Component;
 

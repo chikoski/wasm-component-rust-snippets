@@ -1,4 +1,4 @@
-cargo_component_bindings::generate!();
+mod bindings;
 
 fn main() {
     println!("Hello, world!");

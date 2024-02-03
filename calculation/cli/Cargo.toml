@@ -15,4 +15,4 @@ path = "../add/wit"
 world = "cli"
 
 [dependencies]
-cargo-component-bindings = "0.6.0"
+wit-bindgen = "0.16.0"

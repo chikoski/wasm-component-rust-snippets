@@ -12,4 +12,4 @@ package = "component:hello-wasi-component"
 
 [dependencies]
 anyhow = "1.0.76"
-cargo-component-bindings = "0.6.0"
+wit-bindgen = "0.16.0"
