@@ -6,15 +6,16 @@ members = [
     "host-code-generation/guest-ferris",
     "grep-wasm/grep-cli",
     "grep-wasm/filter-id",
-    "calculation/add",
-    "calculation/cli",
+    "component-composition/*",
     "cargo-component-updater",
 ]
 
 exclude = [
     "spin/*",
+    "composed/",
     "grep-wasm/grep-cli-dynamic-linking",
     "wasmtime-reactor-component",
+    "component-composition/scripts",
 ]
 
 resolver = "2"
