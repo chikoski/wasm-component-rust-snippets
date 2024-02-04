@@ -12,9 +12,7 @@ members = [
 ]
 
 exclude = [
-    "advent-of-spin2023-challenge01",
-    "advent-of-spin2023-challenge02",
-    "advent-of-spin2023-challenge03",
+    "spin/*",
     "grep-wasm/grep-cli-dynamic-linking",
     "wasmtime-reactor-component",
 ]
