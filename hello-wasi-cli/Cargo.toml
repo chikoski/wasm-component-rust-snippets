@@ -1,10 +1,10 @@
 [package]
-name = "hello-world"
+name = "hello-wasi-cli"
 version = "0.1.0"
 edition = "2021"
 
 [package.metadata.component]
-package = "component:hello-world"
+package = "component:hello-wasi-cli"
 
 [package.metadata.component.dependencies]
 

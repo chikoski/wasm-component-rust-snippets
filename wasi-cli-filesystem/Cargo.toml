@@ -1,10 +1,10 @@
 [package]
-name = "hello-wasi-component"
+name = "wasi-cli-filesystem"
 version = "0.1.0"
 edition = "2021"
 
 [package.metadata.component]
-package = "component:hello-wasi-component"
+package = "component:wasi-cli-filesystem"
 
 [package.metadata.component.dependencies]
 
