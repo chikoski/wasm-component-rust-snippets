@@ -1,7 +1,0 @@
-package example:component;
-
-use says;
-
-world says-implementation {
-    export says;
-}

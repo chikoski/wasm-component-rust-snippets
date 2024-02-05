@@ -1,5 +1,0 @@
-package example:component;
-
-world says-runner {
-    import says;   
-}
