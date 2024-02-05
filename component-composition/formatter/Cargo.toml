@@ -1,5 +1,5 @@
 [package]
-name = "guest-ferris"
+name = "formatter-ferris"
 version = "0.1.0"
 edition = "2021"
 
@@ -13,10 +13,10 @@ wit-bindgen = "0.16.0"
 crate-type = ["cdylib"]
 
 [package.metadata.component]
-package = "component:format-ferris"
+package = "component:formattter-ferris"
 
 [package.metadata.component.target]
-path = "../host-says/wit"
-world = "says-implementation"
+path = "../wit"
+world = "formatter"
 
 [package.metadata.component.dependencies]

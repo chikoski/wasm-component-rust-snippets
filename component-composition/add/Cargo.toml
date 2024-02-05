@@ -14,5 +14,6 @@ package = "component:calculation"
 
 [package.metadata.component.target]
 world = "reactor"
+path = "../wit"
 
 [package.metadata.component.dependencies]

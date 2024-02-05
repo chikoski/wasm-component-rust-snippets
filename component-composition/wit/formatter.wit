@@ -1,0 +1,14 @@
+package component:composition;
+
+interface formattable {
+    enum format-error {
+        ioerror,
+        convert-error,
+    }
+
+    format: func(content: string) -> result<string, format-error>;
+}
+
+world formatter {
+    export formattable;
+}

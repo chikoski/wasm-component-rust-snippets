@@ -2,8 +2,6 @@
 members = [
     "canonical-abi",
     "wasi-cli-filesystem",
-    "host-code-generation/host-says",
-    "host-code-generation/guest-ferris",
     "grep-wasm/grep-cli",
     "grep-wasm/filter-id",
     "component-composition/*",
@@ -16,6 +14,7 @@ exclude = [
     "grep-wasm/grep-cli-dynamic-linking",
     "wasmtime-reactor-component",
     "component-composition/scripts",
+    "component-composition/wit",
 ]
 
 resolver = "2"
