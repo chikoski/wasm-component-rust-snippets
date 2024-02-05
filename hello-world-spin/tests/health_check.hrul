@@ -1,2 +1,0 @@
-GET http://localhost:3000/.well-known/spin/health
-HTTP 200
