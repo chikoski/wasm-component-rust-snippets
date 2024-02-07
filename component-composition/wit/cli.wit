@@ -1,0 +1,7 @@
+package component:composition;
+
+world cli {
+    import calculation;
+    import formattable;
+    import fraction-add;
+}

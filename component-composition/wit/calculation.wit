@@ -7,8 +7,3 @@ interface calculation {
 world reactor {
     export calculation;
 }
-
-world cli {
-    import calculation;
-    import formattable;
-}

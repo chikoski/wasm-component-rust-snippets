@@ -1,0 +1,17 @@
+package component:composition;
+
+interface fraction-add {
+    record fraction {
+        numerator: s32,
+        denominator: u32
+    }
+
+    new: func(numerator: s32, denominator: u32) -> fraction;
+    add: func(a: fraction, b: fraction) -> fraction;
+    sub: func(a: fraction, b: fraction) -> fraction;
+    reduce: func(a: fraction) -> fraction;
+}
+
+world fraction {
+    export fraction-add;
+}
