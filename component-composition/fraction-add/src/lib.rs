@@ -27,14 +27,16 @@ impl Fraction {
         .reduce()
     }
     fn reduce(&self) -> Fraction {
-        let mut numerator = self.numerator;
-        let mut denominator = self.denominator as i32;
-        while denominator != 0 {
-            let gcd = denominator;
-            denominator = numerator % denominator;
+        let mut numerator = self.numerator.abs() as u32;
+        let mut gcd = self.denominator;
+
+        let mut r = numerator % gcd;
+        while r != 0 {
             numerator = gcd;
+            gcd = r;
+            r = numerator % gcd;
         }
-        Fraction::new(numerator, denominator as u32)
+        return Fraction::new(self.numerator / (gcd as i32), self.denominator / gcd);
     }
 }
 
