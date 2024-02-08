@@ -5,7 +5,7 @@ use std::fmt::Display;
 use crate::bindings::component::composition::calculation::add;
 use crate::bindings::component::composition::formattable::format as say;
 use crate::bindings::component::composition::fraction_add;
-use crate::bindings::component::composition::message_handlable::{get_message, Message};
+use crate::bindings::component::composition::message_handlable::get_message;
 
 fn main() {
     calculation();
@@ -47,5 +47,8 @@ fn signaling() {
     let message = get_message(42);
     let value = message.get();
     ferris_says(&format!("Got message: {}", value));
-    message.post(value);
+    message.post(value - 10);
+
+    let value = message.get();
+    ferris_says(&format!("Got message: {}", value));
 }
