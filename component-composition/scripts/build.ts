@@ -133,6 +133,7 @@ function main() {
 		new Wasm("calculation_add.wasm"),
 		new Wasm("formatter_ferris.wasm"),
 		new Wasm("fraction_add.wasm"),
+		new Wasm("resource_handler.wasm"),
 	];
 	const context = new Context(host, dependencies);
 	context.start();

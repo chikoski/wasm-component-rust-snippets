@@ -1,0 +1,13 @@
+package component:composition;
+
+interface message-handlable {
+    resource message {
+        get: func() -> s32;
+        post: func(value: s32);
+    }
+    get-message: func(value: s32) -> message;
+}
+
+world message-handler {
+    export message-handlable;
+}
