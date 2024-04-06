@@ -9,6 +9,7 @@ edition = "2021"
 wit-bindgen = { version = "0.17.0", default-features = false, features = [
     "realloc",
 ] }
+wit-bindgen-rt = { version = "0.24.0", features = ["bitflags"] }
 
 [lib]
 crate-type = ["cdylib"]

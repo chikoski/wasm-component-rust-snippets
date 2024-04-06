@@ -4,9 +4,9 @@ use std::cell::RefCell;
 
 use bindings::exports::component::composition::message_handlable::Guest;
 use bindings::exports::component::composition::message_handlable::GuestMessage;
-use wit_bindgen::Resource;
+use bindings::exports::component::composition::message_handlable::Message;
 
-pub struct Message {
+pub struct MessageImpl {
     value: RefCell<IntValueHolder>,
 }
 
@@ -20,7 +20,7 @@ impl From<i32> for IntValueHolder {
     }
 }
 
-impl GuestMessage for Message {
+impl GuestMessage for MessageImpl {
     fn get(&self) -> i32 {
         self.value.borrow().value
     }
@@ -29,16 +29,25 @@ impl GuestMessage for Message {
         println!("Posted message: {}", value);
         self.value.borrow_mut().value = value;
     }
+    fn get_message(value: i32) -> Message {
+        let guest = MessageImpl::from(value);
+        Message::new(guest)
+    }
+}
+
+impl From<i32> for MessageImpl {
+    fn from(value: i32) -> Self {
+        let value = IntValueHolder::from(value);
+        MessageImpl {
+            value: RefCell::new(value),
+        }
+    }
 }
 
 struct Component;
 
 impl Guest for Component {
-    fn get_message(value: i32) -> Resource<Message> {
-        let value = IntValueHolder::from(value);
-        let m = Message {
-            value: RefCell::new(value),
-        };
-        Resource::new(m)
-    }
+    type Message = MessageImpl;
 }
+
+bindings::export!(Component with_types_in bindings);

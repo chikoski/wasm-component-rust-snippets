@@ -15,3 +15,5 @@ impl Guest for Component {
         Ok(formatted)
     }
 }
+
+bindings::export!(Component with_types_in bindings);

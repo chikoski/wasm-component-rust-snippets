@@ -2,10 +2,11 @@ mod bindings;
 
 use std::fmt::Display;
 
+use bindings::component::composition::message_handlable::Message;
+
 use crate::bindings::component::composition::calculation::add;
 use crate::bindings::component::composition::formattable::format as say;
 use crate::bindings::component::composition::fraction_add;
-use crate::bindings::component::composition::message_handlable::get_message;
 
 fn main() {
     calculation();
@@ -44,7 +45,7 @@ impl Display for fraction_add::Fraction {
 }
 
 fn signaling() {
-    let message = get_message(42);
+    let message = Message::get_message(42);
     let value = message.get();
     ferris_says(&format!("Got message: {}", value));
     message.post(value - 10);

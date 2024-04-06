@@ -4,8 +4,8 @@ interface message-handlable {
     resource message {
         get: func() -> s32;
         post: func(value: s32);
+        get-message: static func(value: s32) -> message;
     }
-    get-message: func(value: s32) -> message;
 }
 
 world message-handler {

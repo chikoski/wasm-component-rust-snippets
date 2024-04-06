@@ -16,3 +16,4 @@ world = "cli"
 
 [dependencies]
 wit-bindgen = "0.16.0"
+wit-bindgen-rt = "0.24.0"

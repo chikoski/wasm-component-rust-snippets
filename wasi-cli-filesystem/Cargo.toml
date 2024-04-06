@@ -13,3 +13,4 @@ package = "component:wasi-cli-filesystem"
 [dependencies]
 anyhow = "1.0.76"
 wit-bindgen = "0.16.0"
+wit-bindgen-rt = "0.24.0"
