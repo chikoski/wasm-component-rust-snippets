@@ -1,0 +1,14 @@
+package component:fraction-with-wit;
+
+interface fraction {
+    record fraction {
+        numerator: s32,
+        denominator: s32
+    }
+
+    new: func(numerator: s32, denominator: s32) -> fraction;
+}
+
+world example {
+    export fraction;
+}
