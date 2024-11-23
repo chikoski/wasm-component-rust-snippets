@@ -1,0 +1,24 @@
+[package]
+name = "bitmap-png-bridge"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+png = "0.17.14"
+wit-bindgen-rt = { version = "0.34.0", features = ["bitflags"] }
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+codegen-units = 1
+opt-level = "s"
+debug = false
+strip = true
+lto = true
+
+[package.metadata.component]
+package = "chikoski:bitmap-png-bridge"
+target = "chikoski:glitch-art/bridge@0.3.4"
+
+[package.metadata.component.dependencies]
