@@ -1,6 +1,0 @@
-build/*
-node_modules/
-.vscode
-package-lock.json
-deno.lock
-*.csv
