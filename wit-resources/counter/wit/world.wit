@@ -1,0 +1,14 @@
+package chikoski:wit-example@0.1.0;
+
+interface countable {
+    resource counter {
+        new: static func() -> counter;
+        up: func();
+        down: func();
+        value-of: func() -> u32;
+    }
+}
+
+world counter {
+    export countable;
+}
