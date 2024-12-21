@@ -14,7 +14,6 @@ impl Default for Host {
     }
 }
 
-
 impl WasiView for Host {
     fn table(&mut self) -> &mut ResourceTable {
         &mut self.resource_table
