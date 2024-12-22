@@ -1,12 +1,12 @@
 use wasmtime::component::ResourceTable;
 use wasmtime_wasi::{WasiCtx, WasiCtxBuilder, WasiView};
 
-pub struct Host {
+pub struct Preview2Host {
     wasi_ctx: WasiCtx,
     resource_table: ResourceTable,
 }
 
-impl Default for Host {
+impl Default for Preview2Host {
     fn default() -> Self {
         let wasi_ctx = WasiCtxBuilder::new().inherit_stdio().build();
         let resource_table = ResourceTable::default();
@@ -14,7 +14,7 @@ impl Default for Host {
     }
 }
 
-impl WasiView for Host {
+impl WasiView for Preview2Host {
     fn table(&mut self) -> &mut ResourceTable {
         &mut self.resource_table
     }
