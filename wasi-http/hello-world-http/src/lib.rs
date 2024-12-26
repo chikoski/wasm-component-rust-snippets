@@ -1,8 +1,10 @@
-#[allow(warnings)]
-mod bindings;
+wit_bindgen::generate!({
+    world: "wasi:http/proxy@0.2.0",
+    generate_all
+});
 
-use bindings::{exports::wasi::http::incoming_handler::{Guest, IncomingRequest, ResponseOutparam}, wasi::http::types::{FieldKey, FieldValue, Headers, OutgoingBody, OutgoingResponse}};
-
+use crate::exports::wasi::http::incoming_handler::Guest;
+use crate::wasi::http::types::{FieldKey, FieldValue, Headers, IncomingRequest, OutgoingBody, OutgoingResponse, ResponseOutparam};
 struct Component;
 
 impl Guest for Component {
@@ -25,4 +27,4 @@ impl Guest for Component {
     }
 }
 
-bindings::export!(Component with_types_in bindings);
+export!(Component);

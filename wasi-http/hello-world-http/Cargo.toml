@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+wit-bindgen = "0.36.0"
 wit-bindgen-rt = { version = "0.36.0", features = ["bitflags"] }
 
 [lib]
@@ -15,9 +16,3 @@ opt-level = "s"
 debug = false
 strip = true
 lto = true
-
-[package.metadata.component]
-package = "component:http-hello-world"
-target = "wasi:http/proxy@0.2.0"
-
-[package.metadata.component.dependencies]
